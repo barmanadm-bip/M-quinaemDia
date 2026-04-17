@@ -1,205 +1,235 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 Ofertas Automotivas | Máquina em Dia</title>
 
-<title>🔥 Ofertas Automotivas | Máquina em Dia</title>
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #121212;
+            --border: #252525;
+            --yellow: #ffcc00;
+            --text: #aaa;
+            --green: #00c853;
+        }
 
-<style>
-:root{
---bg:#050505;
---card:#121212;
---border:#252525;
---yellow:#ffcc00;
---text:#aaa;
---green:#00c853;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+        body {
+            font-family: sans-serif;
+            background: var(--bg);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+        }
 
-body{
-font-family:sans-serif;
-background:var(--bg);
-color:#fff;
-display:flex;
-justify-content:center;
-}
+        .app {
+            width: 100%;
+            max-width: 420px;
+            min-height: 100vh;
+            background: var(--card);
+            padding-bottom: 80px; /* Espaço para o botão do whats */
+        }
 
-.app{
-width:100%;
-max-width:420px;
-min-height:100vh;
-background:var(--card);
-}
+        header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            background: #000;
+        }
 
-header{
-text-align:center;
-padding:20px;
-border-bottom:1px solid var(--border);
-}
+        header h1 {
+            color: var(--yellow);
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
 
-header h1{
-color:var(--yellow);
-font-size:1.6rem;
-}
+        .timer {
+            background: #1a0000;
+            text-align: center;
+            padding: 10px;
+            color: #ff4444;
+            font-weight: bold;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #300;
+        }
 
-.timer{
-background:#000;
-text-align:center;
-padding:10px;
-color:#ff4444;
-font-weight:bold;
-font-size:0.8rem;
-}
+        /* Container para os produtos não quebrarem o layout */
+        #lista-produtos {
+            display: flex;
+            flex-direction: column;
+        }
 
-.card{
-background:#0c0c0c;
-margin:10px;
-border-radius:12px;
-overflow:hidden;
-border:1px solid var(--border);
-position:relative;
-}
+        .card {
+            background: #1a1a1a;
+            margin: 15px 12px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
 
-.badge{
-position:absolute;
-top:10px;
-left:10px;
-background:var(--green);
-padding:4px 8px;
-font-size:0.6rem;
-border-radius:5px;
-font-weight:bold;
-}
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--green);
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 0.65rem;
+            border-radius: 4px;
+            font-weight: bold;
+            z-index: 10;
+        }
 
-.card img{
-width:100%;
-height:140px;
-object-fit:cover;
-}
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--yellow);
+        }
 
-.card-body{
-padding:12px;
-}
+        .card-body {
+            padding: 15px;
+        }
 
-.title{
-font-size:0.9rem;
-font-weight:bold;
-margin-bottom:6px;
-}
+        .title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #efefef;
+        }
 
-.price{
-color:var(--yellow);
-font-size:1rem;
-}
+        .price-container {
+            margin-bottom: 10px;
+        }
 
-.old{
-text-decoration:line-through;
-color:#666;
-font-size:0.75rem;
-}
+        .price {
+            color: var(--yellow);
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
 
-.social{
-font-size:0.7rem;
-color:var(--text);
-margin-top:3px;
-}
+        .old {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
 
-.btn{
-display:block;
-text-align:center;
-border:2px solid var(--yellow);
-padding:10px;
-border-radius:8px;
-color:var(--yellow);
-text-decoration:none;
-font-weight:bold;
-margin-top:8px;
-}
+        .social {
+            font-size: 0.75rem;
+            color: var(--text);
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-.btn:hover{
-background:var(--yellow);
-color:#000;
-}
+        .btn {
+            display: block;
+            text-align: center;
+            background: transparent;
+            border: 2px solid var(--yellow);
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
 
-.whats{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:14px;
-border-radius:50%;
-text-decoration:none;
-}
-</style>
+        .btn:hover {
+            background: var(--yellow);
+            color: #000;
+        }
+
+        .whats {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="app">
+    <div class="app">
+        <header>
+            <h1>🔥 OFERTAS RELÂMPAGO</h1>
+        </header>
 
-<header>
-<h1>🔥 OFERTAS RELÂMPAGO</h1>
-</header>
+        <div class="timer">
+            ⏳ Promoções acabam em: <span id="countdown">10:00</span>
+        </div>
 
-<div class="timer">
-⏳ Promoções acabam em: <span id="countdown">10:00</span>
-</div>
+        <div id="lista-produtos"></div>
 
-<!-- PRODUTOS -->
+        <script>
+            // Imagens focadas em carros populares (Gol, Uno, Onix, etc)
+            const produtos = [
+                ["Scanner OBD2 Profissional", "59,90", "129,90", "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=600", "MAIS VENDIDO"],
+                ["Kit LED Interno Premium", "39,90", "89,90", "https://images.unsplash.com/photo-1549233861-46821645bc9a?q=80&w=600", "OFERTA"],
+                ["Organizador de Porta-Malas", "49,90", "99,90", "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=600", ""],
+                ["Aspirador de Pó 12V Turbo", "79,90", "149,90", "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=600", "QUEIMA DE ESTOQUE"],
+                ["Cera de Grafeno (Brilho Espelhado)", "44,90", "99,90", "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=600", ""],
+                ["Suporte Magnético Invisível", "29,90", "69,90", "https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=600", ""],
+                ["Capa de Banco Couro Sintético", "89,90", "199,90", "https://images.unsplash.com/photo-1553260162-7101ad0d199b?q=80&w=600", ""],
+                ["Mini Compressor de Pneu Portátil", "99,90", "199,90", "https://images.unsplash.com/photo-1567818735868-e71b99932e29?q=80&w=600", "FRETE GRÁTIS"]
+            ];
 
-<script>
-const produtos = [
-["Scanner OBD2 Profissional","59,90","129,90","https://images.unsplash.com/photo-1511919884226-fd3cad34687c"],
-["Kit LED Interno","39,90","89,90","https://images.unsplash.com/photo-1503376780353-7e6692767b70"],
-["Organizador Porta-Malas","49,90","99,90","https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2"],
-["Aspirador Automotivo Turbo","79,90","149,90","https://images.unsplash.com/photo-1581578731548-c64695cc6952"],
-["Cera de Grafeno","44,90","99,90","https://images.unsplash.com/photo-1613214150388-4f780b0d6b7e"],
-["Suporte de Celular Veicular","29,90","69,90","https://images.unsplash.com/photo-1549921296-3a6b0a7c03b9"],
-["Capa de Banco Universal","89,90","199,90","https://images.unsplash.com/photo-1552519507-da3b142c6e3d"],
-["Mini Compressor Portátil","99,90","199,90","https://images.unsplash.com/photo-1581091870627-3f89d9c70d5b"]
-];
+            const container = document.getElementById("lista-produtos");
 
-const app = document.querySelector(".app");
+            produtos.forEach((p) => {
+                const card = `
+                <div class="card">
+                    ${p[4] ? `<div class="badge">${p[4]}</div>` : ''}
+                    <img src="${p[3]}" alt="${p[0]}">
+                    <div class="card-body">
+                        <div class="title">${p[0]}</div>
+                        <div class="price-container">
+                            <span class="old">De R$ ${p[2]}</span>
+                            <span class="price">Por R$ ${p[1]}</span>
+                        </div>
+                        <div class="social">🔥 ${Math.floor(Math.random() * 20) + 15} interessados agora</div>
+                        <div class="social">⚠️ Restam apenas ${Math.floor(Math.random() * 5) + 2} unidades</div>
+                        <div class="social">⭐ 4.${Math.floor(Math.random() * 2) + 7} (1.2k avaliações)</div>
+                        <a href="https://wa.me/55SEUNUMERO?text=Quero comprar: ${p[0]}" class="btn">APROVEITAR OFERTA</a>
+                    </div>
+                </div>
+                `;
+                container.innerHTML += card;
+            });
 
-produtos.forEach((p,i)=>{
-const card = `
-<div class="card">
-${i==0?'<div class="badge">MAIS VENDIDO</div>':''}
-<img src="${p[3]}">
+            // CONTADOR
+            let time = 600;
+            const timerElement = document.getElementById("countdown");
+            setInterval(() => {
+                let m = Math.floor(time / 60);
+                let s = time % 60;
+                timerElement.innerText = m + ":" + (s < 10 ? "0" + s : s);
+                if (time > 0) time--;
+            }, 1000);
+        </script>
+    </div>
 
-<div class="card-body">
-<div class="title">${p[0]}</div>
-<div class="price">R$ ${p[1]}</div>
-<div class="old">R$ ${p[2]}</div>
-
-<div class="social">🔥 ${Math.floor(Math.random()*20)+5} pessoas vendo</div>
-<div class="social">⚠️ Restam ${Math.floor(Math.random()*10)+1} unidades</div>
-<div class="social">⭐ 4.${Math.floor(Math.random()*3)+7}/5 avaliações</div>
-
-<a href="#" class="btn">COMPRAR AGORA</a>
-</div>
-</div>
-`;
-app.innerHTML += card;
-});
-
-// CONTADOR
-let time=600;
-setInterval(()=>{
-let m=Math.floor(time/60);
-let s=time%60;
-document.getElementById("countdown").innerText =
-m+":"+(s<10?"0"+s:s);
-if(time>0)time--;
-},1000);
-</script>
-
-</div>
-
-<a href="https://wa.me/55SEUNUMERO?text=Quero entrar no grupo 🔥" class="whats">💬</a>
+    <a href="https://wa.me/55SEUNUMERO?text=Quero entrar no grupo de ofertas" class="whats">
+        <svg style="width:30px;height:30px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.66 20.15 9.3 19.8 8.1 19.14L7.81 18.98L4.67 19.8L5.5 16.73L5.33 16.44C4.6 15.2 4.21 13.78 4.21 11.91C4.21 7.37 7.9 3.67 12.05 3.67M8.75 7.31C8.54 7.31 8.2 7.39 7.93 7.68C7.66 7.97 6.9 8.72 6.9 10.24C6.9 11.75 8 13.22 8.16 13.44C8.31 13.66 10.32 16.76 13.41 18.1C14.15 18.42 14.71 18.6 15.17 18.75C15.9 18.99 16.57 18.95 17.1 18.87C17.7 18.78 18.92 18.14 19.17 17.43C19.42 16.71 19.42 16.11 19.35 15.97C19.27 15.85 19.08 15.78 18.8 15.63C18.5 15.47 17.06 14.77 16.8 14.66C16.53 14.57 16.34 14.52 16.15 14.81C15.96 15.1 15.42 15.74 15.25 15.93C15.1 16.11 14.93 16.15 14.66 16.01C14.38 15.86 13.47 15.56 12.39 14.6C11.55 13.85 10.99 12.92 10.82 12.63C10.66 12.34 10.8 12.19 10.95 12.05C11.08 11.92 11.23 11.72 11.39 11.54C11.54 11.36 11.58 11.23 11.68 11.05C11.78 10.87 11.73 10.71 11.66 10.56C11.59 10.41 11.06 9.11 10.84 8.58C10.62 8.05 10.39 8.13 10.23 8.12C10.07 8.12 9.89 8.12 9.7 8.12C9.5 8.12 9.19 8.19 8.93 8.47C8.66 8.75 8.75 7.31 8.75 7.31Z" />
+        </svg>
+    </a>
 
 </body>
 </html>
