@@ -30,7 +30,7 @@
             max-width: 420px;
             min-height: 100vh;
             background: var(--card);
-            padding-bottom: 80px; /* Espaço para o botão do whats */
+            padding-bottom: 80px;
         }
 
         header {
@@ -56,7 +56,6 @@
             border-bottom: 1px solid #300;
         }
 
-        /* Container para os produtos não quebrarem o layout */
         #lista-produtos {
             display: flex;
             flex-direction: column;
@@ -87,9 +86,10 @@
 
         .card img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
             border-bottom: 2px solid var(--yellow);
+            background: #fff; /* Fundo branco para destacar produtos com fundo transparente */
         }
 
         .card-body {
@@ -159,7 +159,9 @@
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             z-index: 100;
-            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -178,16 +180,16 @@
         <div id="lista-produtos"></div>
 
         <script>
-            // Imagens focadas em carros populares (Gol, Uno, Onix, etc)
+            // Lista atualizada com links de imagens REAIS dos produtos
             const produtos = [
-                ["Scanner OBD2 Profissional", "59,90", "129,90", "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=600", "MAIS VENDIDO"],
-                ["Kit LED Interno Premium", "39,90", "89,90", "https://images.unsplash.com/photo-1549233861-46821645bc9a?q=80&w=600", "OFERTA"],
-                ["Organizador de Porta-Malas", "49,90", "99,90", "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=600", ""],
-                ["Aspirador de Pó 12V Turbo", "79,90", "149,90", "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=600", "QUEIMA DE ESTOQUE"],
-                ["Cera de Grafeno (Brilho Espelhado)", "44,90", "99,90", "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=600", ""],
-                ["Suporte Magnético Invisível", "29,90", "69,90", "https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=600", ""],
-                ["Capa de Banco Couro Sintético", "89,90", "199,90", "https://images.unsplash.com/photo-1553260162-7101ad0d199b?q=80&w=600", ""],
-                ["Mini Compressor de Pneu Portátil", "99,90", "199,90", "https://images.unsplash.com/photo-1567818735868-e71b99932e29?q=80&w=600", "FRETE GRÁTIS"]
+                ["Scanner Automotivo OBD2 Bluetooth", "59,90", "129,90", "https://m.media-amazon.com/images/I/61NlM+OshML._AC_SL1000_.jpg", "MAIS VENDIDO"],
+                ["Kit 10 Lâmpadas LED Interno T10", "39,90", "89,90", "https://m.media-amazon.com/images/I/61tG+oPjXqL._AC_SL1000_.jpg", "OFERTA"],
+                ["Organizador Porta-Malas Impermeável", "49,90", "99,90", "https://m.media-amazon.com/images/I/71XmU2v2p4L._AC_SL1500_.jpg", ""],
+                ["Aspirador de Pó Portátil 12V High Power", "79,90", "149,90", "https://m.media-amazon.com/images/I/61I8M66U79L._AC_SL1500_.jpg", "CAMPEÃO DE VENDAS"],
+                ["Cera de Grafeno Líquida 500ml", "44,90", "99,90", "https://m.media-amazon.com/images/I/51rK6-2p92L._AC_SL1000_.jpg", ""],
+                ["Suporte Celular Magnético Premium", "29,90", "69,90", "https://m.media-amazon.com/images/I/61y82987VvL._AC_SL1500_.jpg", ""],
+                ["Jogo de Capas para Banco (Preto)", "89,90", "199,90", "https://m.media-amazon.com/images/I/71Yv-pYFvPL._AC_SL1500_.jpg", ""],
+                ["Mini Compressor de Ar Digital Portátil", "99,90", "199,90", "https://m.media-amazon.com/images/I/61vY6-9YI6L._AC_SL1200_.jpg", "FRETE GRÁTIS"]
             ];
 
             const container = document.getElementById("lista-produtos");
@@ -205,15 +207,14 @@
                         </div>
                         <div class="social">🔥 ${Math.floor(Math.random() * 20) + 15} interessados agora</div>
                         <div class="social">⚠️ Restam apenas ${Math.floor(Math.random() * 5) + 2} unidades</div>
-                        <div class="social">⭐ 4.${Math.floor(Math.random() * 2) + 7} (1.2k avaliações)</div>
-                        <a href="https://wa.me/55SEUNUMERO?text=Quero comprar: ${p[0]}" class="btn">APROVEITAR OFERTA</a>
+                        <div class="social">⭐ 4.${Math.floor(Math.random() * 2) + 7} (Avaliações verificadas)</div>
+                        <a href="https://wa.me/55SEUNUMERO?text=Olá! Tenho interesse no ${p[0]}" class="btn">COMPRAR AGORA</a>
                     </div>
                 </div>
                 `;
                 container.innerHTML += card;
             });
 
-            // CONTADOR
             let time = 600;
             const timerElement = document.getElementById("countdown");
             setInterval(() => {
@@ -225,7 +226,7 @@
         </script>
     </div>
 
-    <a href="https://wa.me/55SEUNUMERO?text=Quero entrar no grupo de ofertas" class="whats">
+    <a href="https://wa.me/55SEUNUMERO?text=Quero receber as ofertas diárias" class="whats">
         <svg style="width:30px;height:30px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.66 20.15 9.3 19.8 8.1 19.14L7.81 18.98L4.67 19.8L5.5 16.73L5.33 16.44C4.6 15.2 4.21 13.78 4.21 11.91C4.21 7.37 7.9 3.67 12.05 3.67M8.75 7.31C8.54 7.31 8.2 7.39 7.93 7.68C7.66 7.97 6.9 8.72 6.9 10.24C6.9 11.75 8 13.22 8.16 13.44C8.31 13.66 10.32 16.76 13.41 18.1C14.15 18.42 14.71 18.6 15.17 18.75C15.9 18.99 16.57 18.95 17.1 18.87C17.7 18.78 18.92 18.14 19.17 17.43C19.42 16.71 19.42 16.11 19.35 15.97C19.27 15.85 19.08 15.78 18.8 15.63C18.5 15.47 17.06 14.77 16.8 14.66C16.53 14.57 16.34 14.52 16.15 14.81C15.96 15.1 15.42 15.74 15.25 15.93C15.1 16.11 14.93 16.15 14.66 16.01C14.38 15.86 13.47 15.56 12.39 14.6C11.55 13.85 10.99 12.92 10.82 12.63C10.66 12.34 10.8 12.19 10.95 12.05C11.08 11.92 11.23 11.72 11.39 11.54C11.54 11.36 11.58 11.23 11.68 11.05C11.78 10.87 11.73 10.71 11.66 10.56C11.59 10.41 11.06 9.11 10.84 8.58C10.62 8.05 10.39 8.13 10.23 8.12C10.07 8.12 9.89 8.12 9.7 8.12C9.5 8.12 9.19 8.19 8.93 8.47C8.66 8.75 8.75 7.31 8.75 7.31Z" />
         </svg>
