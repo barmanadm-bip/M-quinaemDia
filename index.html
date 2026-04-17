@@ -4,233 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔥 Ofertas Automotivas | Máquina em Dia</title>
-
     <style>
-        :root {
-            --bg: #050505;
-            --card: #121212;
-            --border: #252525;
-            --yellow: #ffcc00;
-            --text: #aaa;
-            --green: #00c853;
-        }
-
+        :root { --bg: #050505; --card: #121212; --border: #252525; --yellow: #ffcc00; --text: #aaa; --green: #00c853; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: sans-serif;
-            background: var(--bg);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-        }
-
-        .app {
-            width: 100%;
-            max-width: 420px;
-            min-height: 100vh;
-            background: var(--card);
-            padding-bottom: 80px;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px;
-            border-bottom: 1px solid var(--border);
-            background: #000;
-        }
-
-        header h1 {
-            color: var(--yellow);
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-        }
-
-        .timer {
-            background: #1a0000;
-            text-align: center;
-            padding: 10px;
-            color: #ff4444;
-            font-weight: bold;
-            font-size: 0.85rem;
-            border-bottom: 1px solid #300;
-        }
-
-        #lista-produtos {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card {
-            background: #1a1a1a;
-            margin: 15px 12px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        .badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--green);
-            color: #fff;
-            padding: 5px 10px;
-            font-size: 0.65rem;
-            border-radius: 4px;
-            font-weight: bold;
-            z-index: 10;
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 2px solid var(--yellow);
-            background: #fff; /* Fundo branco para destacar produtos com fundo transparente */
-        }
-
-        .card-body {
-            padding: 15px;
-        }
-
-        .title {
-            font-size: 1rem;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #efefef;
-        }
-
-        .price-container {
-            margin-bottom: 10px;
-        }
-
-        .price {
-            color: var(--yellow);
-            font-size: 1.4rem;
-            font-weight: 900;
-        }
-
-        .old {
-            text-decoration: line-through;
-            color: #666;
-            font-size: 0.8rem;
-            margin-right: 5px;
-        }
-
-        .social {
-            font-size: 0.75rem;
-            color: var(--text);
-            margin-top: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn {
-            display: block;
-            text-align: center;
-            background: transparent;
-            border: 2px solid var(--yellow);
-            padding: 12px;
-            border-radius: 8px;
-            color: var(--yellow);
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--yellow);
-            color: #000;
-        }
-
-        .whats {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: #fff;
-            padding: 15px;
-            border-radius: 50%;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        body { font-family: sans-serif; background: var(--bg); color: #fff; display: flex; justify-content: center; }
+        .app { width: 100%; max-width: 420px; min-height: 100vh; background: var(--card); padding-bottom: 90px; }
+        header { text-align: center; padding: 20px; border-bottom: 1px solid var(--border); background: #000; }
+        header h1 { color: var(--yellow); font-size: 1.4rem; }
+        .timer { background: #1a0000; text-align: center; padding: 10px; color: #ff4444; font-weight: bold; font-size: 0.85rem; }
+        .card { background: #1a1a1a; margin: 15px 12px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); position: relative; }
+        .badge { position: absolute; top: 10px; left: 10px; background: var(--green); color: #fff; padding: 5px 10px; font-size: 0.65rem; border-radius: 4px; font-weight: bold; z-index: 10; }
+        .card img { width: 100%; height: 200px; object-fit: contain; background: #fff; border-bottom: 2px solid var(--yellow); }
+        .card-body { padding: 15px; }
+        .title { font-size: 1rem; font-weight: bold; margin-bottom: 8px; color: #efefef; }
+        .price { color: var(--yellow); font-size: 1.4rem; font-weight: 900; }
+        .old { text-decoration: line-through; color: #666; font-size: 0.8rem; margin-right: 5px; }
+        .social { font-size: 0.75rem; color: var(--text); margin-top: 5px; }
+        .btn { display: block; text-align: center; border: 2px solid var(--yellow); padding: 12px; border-radius: 8px; color: var(--yellow); text-decoration: none; font-weight: bold; margin-top: 15px; }
+        .whats { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff; padding: 15px; border-radius: 50%; z-index: 100; }
     </style>
 </head>
-
 <body>
-
     <div class="app">
-        <header>
-            <h1>🔥 OFERTAS RELÂMPAGO</h1>
-        </header>
-
-        <div class="timer">
-            ⏳ Promoções acabam em: <span id="countdown">10:00</span>
-        </div>
-
+        <header><h1>🔥 OFERTAS RELÂMPAGO</h1></header>
+        <div class="timer">⏳ Promoções acabam em: <span id="countdown">10:00</span></div>
         <div id="lista-produtos"></div>
-
         <script>
-            // Lista atualizada com links de imagens REAIS dos produtos
             const produtos = [
-                ["Scanner Automotivo OBD2 Bluetooth", "59,90", "129,90", "https://m.media-amazon.com/images/I/61NlM+OshML._AC_SL1000_.jpg", "MAIS VENDIDO"],
-                ["Kit 10 Lâmpadas LED Interno T10", "39,90", "89,90", "https://m.media-amazon.com/images/I/61tG+oPjXqL._AC_SL1000_.jpg", "OFERTA"],
-                ["Organizador Porta-Malas Impermeável", "49,90", "99,90", "https://m.media-amazon.com/images/I/71XmU2v2p4L._AC_SL1500_.jpg", ""],
-                ["Aspirador de Pó Portátil 12V High Power", "79,90", "149,90", "https://m.media-amazon.com/images/I/61I8M66U79L._AC_SL1500_.jpg", "CAMPEÃO DE VENDAS"],
-                ["Cera de Grafeno Líquida 500ml", "44,90", "99,90", "https://m.media-amazon.com/images/I/51rK6-2p92L._AC_SL1000_.jpg", ""],
-                ["Suporte Celular Magnético Premium", "29,90", "69,90", "https://m.media-amazon.com/images/I/61y82987VvL._AC_SL1500_.jpg", ""],
-                ["Jogo de Capas para Banco (Preto)", "89,90", "199,90", "https://m.media-amazon.com/images/I/71Yv-pYFvPL._AC_SL1500_.jpg", ""],
-                ["Mini Compressor de Ar Digital Portátil", "99,90", "199,90", "https://m.media-amazon.com/images/I/61vY6-9YI6L._AC_SL1200_.jpg", "FRETE GRÁTIS"]
+                ["Scanner Automotivo OBD2 Bluetooth", "59,90", "129,90", "https://i.imgur.com/8Qn7p7p.jpg", "MAIS VENDIDO"],
+                ["Kit 10 Lâmpadas LED T10 Interno", "39,90", "89,90", "https://i.imgur.com/W2oZ8vR.jpg", "OFERTA"],
+                ["Organizador Porta-Malas Flexível", "49,90", "99,90", "https://i.imgur.com/6S6zY2M.jpg", ""],
+                ["Aspirador de Pó 12V Turbo", "79,90", "149,90", "https://i.imgur.com/K3VwG6O.jpg", "DESTAQUE"],
+                ["Cera de Grafeno (Brilho e Proteção)", "44,90", "99,90", "https://i.imgur.com/mOIdrXm.jpg", ""],
+                ["Suporte Celular Magnético Universal", "29,90", "69,90", "https://i.imgur.com/uGzZ4Zq.jpg", ""],
+                ["Jogo de Capas para Banco (Preto)", "89,90", "199,90", "https://i.imgur.com/vHqLhXU.jpg", ""],
+                ["Mini Compressor de Ar Digital", "99,90", "199,90", "https://i.imgur.com/E9yD6vV.jpg", "FRETE GRÁTIS"]
             ];
-
             const container = document.getElementById("lista-produtos");
-
             produtos.forEach((p) => {
-                const card = `
+                container.innerHTML += `
                 <div class="card">
                     ${p[4] ? `<div class="badge">${p[4]}</div>` : ''}
                     <img src="${p[3]}" alt="${p[0]}">
                     <div class="card-body">
                         <div class="title">${p[0]}</div>
-                        <div class="price-container">
-                            <span class="old">De R$ ${p[2]}</span>
-                            <span class="price">Por R$ ${p[1]}</span>
-                        </div>
-                        <div class="social">🔥 ${Math.floor(Math.random() * 20) + 15} interessados agora</div>
-                        <div class="social">⚠️ Restam apenas ${Math.floor(Math.random() * 5) + 2} unidades</div>
-                        <div class="social">⭐ 4.${Math.floor(Math.random() * 2) + 7} (Avaliações verificadas)</div>
-                        <a href="https://wa.me/55SEUNUMERO?text=Olá! Tenho interesse no ${p[0]}" class="btn">COMPRAR AGORA</a>
+                        <div class="price-container"><span class="old">De R$ ${p[2]}</span><span class="price">Por R$ ${p[1]}</span></div>
+                        <div class="social">🔥 ${Math.floor(Math.random()*20)+15} vendo agora</div>
+                        <div class="social">⚠️ Restam ${Math.floor(Math.random()*5)+2} unidades</div>
+                        <a href="https://wa.me/55SEUNUMERO?text=Quero o ${p[0]}" class="btn">COMPRAR AGORA</a>
                     </div>
-                </div>
-                `;
-                container.innerHTML += card;
+                </div>`;
             });
-
             let time = 600;
-            const timerElement = document.getElementById("countdown");
             setInterval(() => {
-                let m = Math.floor(time / 60);
-                let s = time % 60;
-                timerElement.innerText = m + ":" + (s < 10 ? "0" + s : s);
+                let m = Math.floor(time / 60); let s = time % 60;
+                document.getElementById("countdown").innerText = m + ":" + (s < 10 ? "0" + s : s);
                 if (time > 0) time--;
             }, 1000);
         </script>
     </div>
-
-    <a href="https://wa.me/55SEUNUMERO?text=Quero receber as ofertas diárias" class="whats">
-        <svg style="width:30px;height:30px" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.66 20.15 9.3 19.8 8.1 19.14L7.81 18.98L4.67 19.8L5.5 16.73L5.33 16.44C4.6 15.2 4.21 13.78 4.21 11.91C4.21 7.37 7.9 3.67 12.05 3.67M8.75 7.31C8.54 7.31 8.2 7.39 7.93 7.68C7.66 7.97 6.9 8.72 6.9 10.24C6.9 11.75 8 13.22 8.16 13.44C8.31 13.66 10.32 16.76 13.41 18.1C14.15 18.42 14.71 18.6 15.17 18.75C15.9 18.99 16.57 18.95 17.1 18.87C17.7 18.78 18.92 18.14 19.17 17.43C19.42 16.71 19.42 16.11 19.35 15.97C19.27 15.85 19.08 15.78 18.8 15.63C18.5 15.47 17.06 14.77 16.8 14.66C16.53 14.57 16.34 14.52 16.15 14.81C15.96 15.1 15.42 15.74 15.25 15.93C15.1 16.11 14.93 16.15 14.66 16.01C14.38 15.86 13.47 15.56 12.39 14.6C11.55 13.85 10.99 12.92 10.82 12.63C10.66 12.34 10.8 12.19 10.95 12.05C11.08 11.92 11.23 11.72 11.39 11.54C11.54 11.36 11.58 11.23 11.68 11.05C11.78 10.87 11.73 10.71 11.66 10.56C11.59 10.41 11.06 9.11 10.84 8.58C10.62 8.05 10.39 8.13 10.23 8.12C10.07 8.12 9.89 8.12 9.7 8.12C9.5 8.12 9.19 8.19 8.93 8.47C8.66 8.75 8.75 7.31 8.75 7.31Z" />
-        </svg>
-    </a>
-
+    <a href="https://wa.me/55SEUNUMERO" class="whats"><svg style="width:30px;height:30px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.66 20.15 9.3 19.8 8.1 19.14L7.81 18.98L4.67 19.8L5.5 16.73L5.33 16.44C4.6 15.2 4.21 13.78 4.21 11.91C4.21 7.37 7.9 3.67 12.05 3.67M8.75 7.31C8.54 7.31 8.2 7.39 7.93 7.68C7.66 7.97 6.9 8.72 6.9 10.24C6.9 11.75 8 13.22 8.16 13.44C8.31 13.66 10.32 16.76 13.41 18.1C14.15 18.42 14.71 18.6 15.17 18.75C15.9 18.99 16.57 18.95 17.1 18.87C17.7 18.78 18.92 18.14 19.17 17.43C19.42 16.71 19.42 16.11 19.35 15.97C19.27 15.85 19.08 15.78 18.8 15.63C18.5 15.47 17.06 14.77 16.8 14.66C16.53 14.57 16.34 14.52 16.15 14.81C15.96 15.1 15.42 15.74 15.25 15.93C15.1 16.11 14.93 16.15 14.66 16.01C14.38 15.86 13.47 15.56 12.39 14.6C11.55 13.85 10.99 12.92 10.82 12.63C10.66 12.34 10.8 12.19 10.95 12.05C11.08 11.92 11.23 11.72 11.39 11.54C11.54 11.36 11.58 11.23 11.68 11.05C11.78 10.87 11.73 10.71 11.66 10.56C11.59 10.41 11.06 9.11 10.84 8.58C10.62 8.05 10.39 8.13 10.23 8.12C10.07 8.12 9.89 8.12 9.7 8.12C9.5 8.12 9.19 8.19 8.93 8.47C8.66 8.75 8.75 7.31 8.75 7.31Z" /></svg></a>
 </body>
 </html>
