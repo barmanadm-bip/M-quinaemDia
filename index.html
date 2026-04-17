@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🔥 Ofertas Automotivas | Máquina em Dia</title>
+
+<style>
+:root{
+--bg:#050505;
+--card:#121212;
+--border:#252525;
+--yellow:#ffcc00;
+--text:#aaa;
+--white:#fff;
+--green:#00c853;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:sans-serif;
+background:var(--bg);
+color:#fff;
+display:flex;
+justify-content:center;
+}
+
+.app{
+width:100%;
+max-width:420px;
+min-height:100vh;
+background:var(--card);
+}
+
+/* HEADER */
+header{
+text-align:center;
+padding:20px;
+border-bottom:1px solid var(--border);
+}
+
+header h1{
+color:var(--yellow);
+font-size:1.6rem;
+}
+
+/* CONTADOR */
+.timer{
+background:#000;
+text-align:center;
+padding:10px;
+color:#ff4444;
+font-weight:bold;
+font-size:0.8rem;
+}
+
+/* CARD */
+.card{
+background:#0c0c0c;
+margin:12px;
+border-radius:12px;
+overflow:hidden;
+border:1px solid var(--border);
+position:relative;
+transition:.2s;
+}
+
+.card:hover{
+transform:scale(1.02);
+}
+
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+background:var(--green);
+padding:4px 8px;
+font-size:0.6rem;
+border-radius:5px;
+font-weight:bold;
+}
+
+.card img{
+width:100%;
+height:140px;
+object-fit:cover;
+}
+
+.card-body{
+padding:12px;
+}
+
+.title{
+font-size:0.9rem;
+font-weight:bold;
+margin-bottom:8px;
+}
+
+.price{
+color:var(--yellow);
+font-size:1rem;
+}
+
+.old{
+text-decoration:line-through;
+color:#666;
+font-size:0.75rem;
+margin-bottom:6px;
+}
+
+/* GATILHOS */
+.social{
+font-size:0.7rem;
+color:var(--text);
+margin-top:4px;
+}
+
+/* BOTÃO */
+.btn{
+display:block;
+text-align:center;
+border:2px solid var(--yellow);
+padding:10px;
+border-radius:8px;
+color:var(--yellow);
+text-decoration:none;
+font-weight:bold;
+margin-top:10px;
+}
+
+.btn:hover{
+background:var(--yellow);
+color:#000;
+}
+
+/* WHATS */
+.whats{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:14px;
+border-radius:50%;
+font-size:18px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,.4);
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+<h1>🔥 OFERTAS RELÂMPAGO</h1>
+</header>
+
+<div class="timer">
+⚠️ Promoções acabam em: <span id="countdown">10:00</span>
+</div>
+
+<!-- PRODUTO 1 -->
+<div class="card">
+<div class="badge">MAIS VENDIDO</div>
+<img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537">
+
+<div class="card-body">
+<div class="title">Scanner OBD2 Profissional (Diagnóstico Completo)</div>
+
+<div class="price">R$ 59,90</div>
+<div class="old">R$ 129,90</div>
+
+<div class="social">🔥 <span class="viewing"></span> pessoas vendo agora</div>
+<div class="social">⚠️ Restam apenas <span class="stock"></span> unidades</div>
+<div class="social">🚚 Frete grátis hoje</div>
+<div class="social">⭐ 4.8/5 (+2.134 avaliações)</div>
+<div class="social">💸 Você economiza R$ 70,00</div>
+
+<a href="#" class="btn" target="_blank">COMPRAR AGORA</a>
+</div>
+</div>
+
+<!-- PRODUTO 2 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2">
+
+<div class="card-body">
+<div class="title">Kit LED Interno Premium (Ultra Brilho)</div>
+
+<div class="price">R$ 39,90</div>
+<div class="old">R$ 89,90</div>
+
+<div class="social">🔥 <span class="viewing"></span> pessoas vendo agora</div>
+<div class="social">⚠️ Restam apenas <span class="stock"></span> unidades</div>
+<div class="social">🚚 Envio rápido</div>
+<div class="social">⭐ 4.7/5 (+1.542 avaliações)</div>
+
+<a href="#" class="btn" target="_blank">COMPRAR AGORA</a>
+</div>
+</div>
+
+<!-- PRODUTO 3 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04">
+
+<div class="card-body">
+<div class="title">Organizador Porta-Malas Reforçado</div>
+
+<div class="price">R$ 49,90</div>
+<div class="old">R$ 99,90</div>
+
+<div class="social">🔥 <span class="viewing"></span> pessoas vendo agora</div>
+<div class="social">⚠️ Restam apenas <span class="stock"></span> unidades</div>
+<div class="social">💥 Estoque acabando</div>
+<div class="social">⭐ 4.9/5 (+980 avaliações)</div>
+
+<a href="#" class="btn" target="_blank">COMPRAR AGORA</a>
+</div>
+</div>
+
+</div>
+
+<!-- BOTÃO WHATS -->
+<a href="https://wa.me/55SEUNUMERO?text=Quero entrar no grupo de ofertas 🔥" class="whats" target="_blank">
+💬
+</a>
+
+<script>
+// CONTADOR
+let time = 600;
+setInterval(()=>{
+let min = Math.floor(time/60);
+let sec = time%60;
+document.getElementById("countdown").innerHTML =
+min + ":" + (sec<10 ? "0"+sec : sec);
+if(time>0) time--;
+},1000);
+
+// GATILHOS DINÂMICOS
+function update(){
+document.querySelectorAll(".viewing").forEach(el=>{
+el.innerText = Math.floor(Math.random()*15)+5;
+});
+
+document.querySelectorAll(".stock").forEach(el=>{
+el.innerText = Math.floor(Math.random()*10)+1;
+});
+}
+
+setInterval(update,5000);
+update();
+</script>
+
+</body>
+</html>
